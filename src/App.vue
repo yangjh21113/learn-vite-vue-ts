@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import { Button } from 'ant-design-vue'
 </script>
 
 <template>
+  <Button type="primary">button</Button>
   <div class="text-pink-500">text windicss</div>
   <div>
     <a href="https://vitejs.dev" target="_blank">
