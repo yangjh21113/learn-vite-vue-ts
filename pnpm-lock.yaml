@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^18.11.18
   '@vitejs/plugin-vue': ^4.0.0
   ant-design-vue: ^3.2.15
   autoprefixer: ^10.4.13
@@ -21,11 +22,12 @@ dependencies:
   vue-router: 4.1.6_vue@3.2.45
 
 devDependencies:
+  '@types/node': 18.11.18
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.45
   autoprefixer: 10.4.13
   sass: 1.57.1
   typescript: 4.9.4
-  vite: 4.0.3_sass@1.57.1
+  vite: 4.0.3_ovmyjmuuyckt3r3gpaexj2onji
   vite-plugin-windicss: 1.8.10_vite@4.0.3
   vue-tsc: 1.0.18_typescript@4.9.4
   windicss: 3.5.6
@@ -321,6 +323,10 @@ packages:
       nanopop: 2.2.0
     dev: false
 
+  /@types/node/18.11.18:
+    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+    dev: true
+
   /@vitejs/plugin-vue/4.0.0_vite@4.0.3+vue@3.2.45:
     resolution: {integrity: sha512-e0X4jErIxAB5oLtDqbHvHpJe/uWNkdpYV83AOG2xo2tEVSzCzewgJMtREZM30wXnM5ls90hxiOtAuVU6H5JgbA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -328,7 +334,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.0.3_sass@1.57.1
+      vite: 4.0.3_ovmyjmuuyckt3r3gpaexj2onji
       vue: 3.2.45
     dev: true
 
@@ -1014,13 +1020,13 @@ packages:
       '@windicss/plugin-utils': 1.8.10
       debug: 4.3.4
       kolorist: 1.6.0
-      vite: 4.0.3_sass@1.57.1
+      vite: 4.0.3_ovmyjmuuyckt3r3gpaexj2onji
       windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/4.0.3_sass@1.57.1:
+  /vite/4.0.3_ovmyjmuuyckt3r3gpaexj2onji:
     resolution: {integrity: sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1045,6 +1051,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.11.18
       esbuild: 0.16.12
       postcss: 8.4.20
       resolve: 1.22.1
