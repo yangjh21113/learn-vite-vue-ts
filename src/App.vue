@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import { Button } from 'ant-design-vue'
+import { useStore } from './store/index'
+
+const store = useStore()
+function changename(): void {
+    store.name = 'newName'
+}
+
 </script>
 
 <template>
+  <Button type="primary" @click="changename">{{store.name}}</Button>
+  <br/>
+  <br/>
   <Button type="primary">button</Button>
   <div class="text-pink-500">text windicss</div>
   <div>
