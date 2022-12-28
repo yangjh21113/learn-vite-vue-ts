@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from '@/router/index'
 import 'virtual:windi.css'
 import 'ant-design-vue/dist/antd.css'
+import '@/polyfill/polyfill'
 
 const app = createApp(App)
 app.use(createPinia())

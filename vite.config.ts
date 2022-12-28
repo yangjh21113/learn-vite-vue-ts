@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
 import WindiCSS from 'vite-plugin-windicss'
 import { resolve } from 'path'
+import legacy from "@vitejs/plugin-legacy";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,5 +27,14 @@ export default defineConfig({
     ]
   },
 
-  plugins: [vue(), WindiCSS()]
+  plugins: [
+    vue(),
+    WindiCSS(),
+    legacy({
+      targets: ["cover 99.5%"],
+    }),
+  ],
+  optimizeDeps: {
+    include: ["core-js"],
+  },
 })
