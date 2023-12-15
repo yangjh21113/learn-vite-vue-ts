@@ -38,6 +38,7 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
+    "*.ts": "eslint --cache --fix",
     "*.vue": "eslint --cache --fix"
   },
   "browserslist": [
