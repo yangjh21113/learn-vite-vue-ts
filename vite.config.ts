@@ -35,4 +35,8 @@ export default defineConfig({
 	optimizeDeps: {
 		include: ['core-js'],
 	},
+	server: {
+		port: 80,
+		host: '0.0.0.0',
+	},
 })
