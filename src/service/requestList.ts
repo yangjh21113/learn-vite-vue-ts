@@ -1,5 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import createRequestInstance from './request'
+import { APIs } from './apiList'
 
 class API {
 	request!: ReturnType<typeof createRequestInstance>
@@ -28,6 +29,12 @@ class API {
 		this.head = request.head.bind(this)
 		this.options = request.options.bind(this)
 		this.patch = request.patch.bind(this)
+	}
+
+	// 这是 API 类的静态函数
+	async getUserInfo() {
+		const res = await this.get(APIs.user.Info)
+		return res
 	}
 }
 
