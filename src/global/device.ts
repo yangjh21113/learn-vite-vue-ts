@@ -1,3 +1,5 @@
+import CallApp from 'callapp-lib'
+
 // ie 基本上已经不用了
 export function isIE(UA: string): number {
 	const isIE = UA.indexOf('compatible') > -1 && UA.indexOf('MSIE') > -1 //判断是否IE<11浏览器
@@ -119,4 +121,46 @@ export function deviceType(UA: string): { type: string; env?: string } {
 export function isPC(UA = window.navigator?.userAgent) {
 	const agent = deviceType(UA)
 	return ['pc', 'mac', 'win32', 'win64'].includes(agent.type)
+}
+
+// 移动端唤醒应用
+export function callApp(isIOS: boolean) {
+	let packageName = ''
+	// 一般来说 ios 和 android 的包名不一样
+	if (isIOS) {
+		packageName = 'com.mobile.android.vite.name' // ios 移动端提供
+	} else {
+		packageName = 'com.mobile.ios.vite.name' // android 移动端提供
+	}
+	const appStoreUrl = 'https://itunes.apple.com/cn/app/xxxx' // 填写appstore的下载地址
+	const androidUrl = 'https://yingyongbao' // 软件应用宝地址
+
+	const options = {
+		scheme: {
+			protocol: 'vite', // 移动端设置的
+		},
+		intent: {
+			package: packageName,
+			scheme: 'vite', // 移动端设置的
+		},
+		timeout: 2000,
+		appstore: appStoreUrl,
+		yingyongbao: androidUrl,
+		fallback: 'https://www.xxx.com/',
+	}
+	const callLib = new CallApp(options)
+	callLib.open({
+		path: 'xxx.app/openwith', // 移动端提供
+		callback: () => {
+			if (isIOS) {
+				window.location.href = appStoreUrl // ios 直接跳转到appStore 地址即可
+			} else {
+				// android 跳转
+				const link = document.createElement('a')
+				link.target = '_blank'
+				link.href = androidUrl
+				link.click()
+			}
+		},
+	})
 }
