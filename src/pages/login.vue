@@ -11,6 +11,7 @@
 	<button @click="getArray">取一个数组</button>
 	<br />
 	<h2>当前时间：{{ formatDate('Y-m-d', new Date()) }}</h2>
+	<h2 @click="uploadFile">点击上传文件</h2>
 	<router-view></router-view>
 </template>
 <script lang="ts" setup>
@@ -18,6 +19,7 @@ import { useRoute, useRouter } from 'vue-router'
 import SvgIcon from '@/components/SvgIcon.vue'
 import { setStorage, getStorageArray, StorageKeys } from '@/global/storage'
 import { formatDate } from '@/global/date'
+import { webChooseFile } from '@/global/file'
 const router = useRouter()
 function toAccount() {
 	router.push({
@@ -31,5 +33,10 @@ function savaArray() {
 function getArray() {
 	const list = getStorageArray(StorageKeys.NAME_LIST)
 	console.log(list)
+}
+function uploadFile() {
+	webChooseFile(file => {
+		console.log(file)
+	}, '.png')
 }
 </script>
