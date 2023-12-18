@@ -4,6 +4,7 @@ import autoprefixer from 'autoprefixer'
 import WindiCSS from 'vite-plugin-windicss'
 import { resolve } from 'path'
 import legacy from '@vitejs/plugin-legacy'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,6 +31,9 @@ export default defineConfig({
 		WindiCSS(),
 		legacy({
 			targets: ['cover 99.5%'],
+		}),
+		createSvgIconsPlugin({
+			iconDirs: [resolve(__dirname, 'src/assets/images/svgs')],
 		}),
 	],
 	optimizeDeps: {
