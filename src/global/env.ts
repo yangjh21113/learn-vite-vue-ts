@@ -1,3 +1,5 @@
+import { isUndef } from './is'
+
 // 正式环境
 export const PROD_ENV = {
 	SERVER_URL: 'https://xxx.com/api', // 服务地址
@@ -18,12 +20,12 @@ export type EnvKey = keyof typeof PROD_ENV
 // 调用这个函数获取当前的环境变量
 export function getProcessEnv(key: EnvKey): string | void {
 	if (isDev) {
-		if (DEV_ENV[key] !== undefined) {
+		if (!isUndef(DEV_ENV[key])) {
 			return DEV_ENV[key]
 		}
 		return ''
 	}
-	if (PROD_ENV[key] !== undefined) {
+	if (!isUndef(PROD_ENV[key])) {
 		return PROD_ENV[key]
 	}
 }

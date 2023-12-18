@@ -1,3 +1,5 @@
+import { isNull, isPlainObject } from '@/global/is'
+
 // 所有 key 用常量存储起来
 export enum StorageKeys {
 	TOKEN = 'TOKEN',
@@ -18,12 +20,12 @@ export function removeStorage(key: string): void {
 
 // 判断是否存在
 export function hasStorage(key: string): boolean {
-	return getStorage(key) !== null
+	return !isNull(getStorage(key))
 }
 // 取数组类型的，直接返回解析后的数组
 export function getStorageArray(key: string): Array<unknown> | null {
 	const data = localStorage.getItem(key)
-	if (data === null) {
+	if (isNull(data)) {
 		return data
 	}
 	try {
@@ -45,7 +47,7 @@ export function getStorageObject(key: string): Object | null {
 	}
 	try {
 		const obj = JSON.parse(data)
-		if (Object.prototype.toString.call(obj) === '[object Object]') {
+		if (isPlainObject(obj)) {
 			return obj
 		}
 		localStorage.removeItem(key)
