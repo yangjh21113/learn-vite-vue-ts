@@ -1,9 +1,12 @@
 import API from './requestList'
 import AxiosRequestError from './error'
 import { handleError } from './handleError'
+import { getProcessEnv } from '@/global/env'
 
 const $api = new API({
-	url: 'https://xxx.com/api', // 这个是请求的后台的服务的地址
+	getServerUrl: () => {
+		return `${getProcessEnv('SERVER_URL') || ''}`
+	},
 })
 
 // 请求的拦截器

@@ -19,8 +19,8 @@ class API {
 
 	patch!: <T = any, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig) => Promise<R>
 
-	constructor(options: { url: string }) {
-		const request = createRequestInstance(options.url)
+	constructor(options: { getServerUrl: () => string }) {
+		const request = createRequestInstance(options.getServerUrl)
 		this.request = request
 		this.post = request.post.bind(this)
 		this.put = request.put.bind(this)
