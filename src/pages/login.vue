@@ -9,12 +9,15 @@
 
 	<br />
 	<button @click="getArray">取一个数组</button>
+	<br />
+	<h2>当前时间：{{ formatDate('Y-m-d', new Date()) }}</h2>
 	<router-view></router-view>
 </template>
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 import SvgIcon from '@/components/SvgIcon.vue'
 import { setStorage, getStorageArray, StorageKeys } from '@/global/storage'
+import { formatDate } from '@/global/date'
 const router = useRouter()
 function toAccount() {
 	router.push({
